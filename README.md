@@ -1,6 +1,6 @@
-<h4 align="center">
+<h1 align="center">
   <img alt="Banner" src="./assets/banner.png">
-</h4>
+</h1>
 
 <br>
 
@@ -28,11 +28,11 @@ O app ToDo List ✔️ surgiu com o propósito de ajudar pessoas a se organizare
 <br>
 
 ## 🎨 Layout
-<p align="center">
+<div align="center">
   <img alt="ToDo - Empty" src="./assets/todo-empty.png" style="height: 500px; margin: 5px;">
   <img alt="ToDo - Description" src="./assets/todo-description.png" style="height: 500px; margin: 5px;">
   <img alt="ToDo - List" src="./assets/todo-list.png" style="height: 500px; margin: 5px;">
-</p>
+</div>
 
 ---
 <br>
