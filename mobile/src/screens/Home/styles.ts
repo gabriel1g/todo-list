@@ -46,4 +46,10 @@ export const styles = StyleSheet.create({
     borderRadius: 6,
     backgroundColor: '#1E6F9F',
   },
+  taskQuantityViewBox: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 32,
+    marginBottom: 20,
+  },
 });

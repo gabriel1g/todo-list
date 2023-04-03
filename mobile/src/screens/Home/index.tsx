@@ -3,6 +3,7 @@ import { Alert, Image, TextInput, TouchableOpacity, View } from 'react-native';
 
 import Logo from '../../assets/images/logo.png';
 import Plus from '../../assets/svg/plus.svg';
+import { ViewNumberTasks } from '../../components/ViewNumberTasks';
 import { TasksDTO } from '../../dtos/TasksDTO';
 import { styles } from './styles';
 
@@ -47,6 +48,20 @@ export function Home() {
           <TouchableOpacity style={styles.addTasksButton} onPress={handleAddTask}>
             <Plus height={18} width={18} />
           </TouchableOpacity>
+        </View>
+
+        <View style={styles.taskQuantityViewBox}>
+          <ViewNumberTasks
+            viewName="Criadas"
+            quantity={tasks.filter((item) => item.finishedTask === false && item).length}
+            color="PRIMARY"
+          />
+
+          <ViewNumberTasks
+            viewName="Concluídas"
+            quantity={tasks.filter((item) => item.finishedTask === true && item).length}
+            color="SECONDARY"
+          />
         </View>
       </View>
     </View>
