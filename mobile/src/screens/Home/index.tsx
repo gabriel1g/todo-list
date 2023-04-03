@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import { Alert, Image, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, FlatList, Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 import Logo from '../../assets/images/logo.png';
+import Clipboard from '../../assets/svg/clipboard.svg';
 import Plus from '../../assets/svg/plus.svg';
+import { TaskCard } from '../../components/TaskCard';
 import { ViewNumberTasks } from '../../components/ViewNumberTasks';
 import { TasksDTO } from '../../dtos/TasksDTO';
 import { styles } from './styles';
@@ -27,6 +29,10 @@ export function Home() {
       setTaskDescription('');
     }
   }
+
+  function handleMarkTaskAsFinished(taskDescription: string) {}
+
+  function handleRemoveTask(taskDescription: string) {}
 
   return (
     <View style={styles.container}>
@@ -63,6 +69,29 @@ export function Home() {
             color="SECONDARY"
           />
         </View>
+
+        <FlatList
+          style={styles.tasksViewBox}
+          data={tasks}
+          keyExtractor={(item) => item.taskDescription}
+          renderItem={({ item }) => (
+            <TaskCard
+              taskDescription={item.taskDescription}
+              finishedTask={item.finishedTask}
+              onMarkTaskAsFinished={() => handleMarkTaskAsFinished(item.taskDescription)}
+              onRemoveTask={() => handleRemoveTask(item.taskDescription)}
+            />
+          )}
+          showsVerticalScrollIndicator={false}
+          ListEmptyComponent={() => (
+            <View style={styles.emptyListBox}>
+              <Clipboard style={{ marginTop: 50 }} />
+
+              <Text style={styles.emptyListStrongText}>Você ainda não tem tarefas cadastradas </Text>
+              <Text style={styles.emptyListNormalText}>Crie tarefas e organize seus itens a fazer</Text>
+            </View>
+          )}
+        />
       </View>
     </View>
   );

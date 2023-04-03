@@ -52,4 +52,20 @@ export const styles = StyleSheet.create({
     marginTop: 32,
     marginBottom: 20,
   },
+  tasksViewBox: {
+    flex: 1,
+  },
+  emptyListBox: {
+    alignItems: 'center',
+    borderTopWidth: 1,
+    borderTopColor: '#333333',
+  },
+  emptyListStrongText: {
+    marginTop: 16,
+    color: '#808080',
+    fontWeight: 'bold',
+  },
+  emptyListNormalText: {
+    color: '#808080',
+  },
 });
