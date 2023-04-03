@@ -32,7 +32,17 @@ export function Home() {
 
   function handleMarkTaskAsFinished(taskDescription: string) {}
 
-  function handleRemoveTask(taskDescription: string) {}
+  function handleRemoveTask(taskDescription: string) {
+    Alert.alert('Remover tarefa', 'Você deseja realmente excluir esta tarefa?', [
+      {
+        text: 'Sim',
+        onPress: () => {
+          setTasks(tasks.filter((item) => item.taskDescription !== taskDescription && item));
+        },
+      },
+      { text: 'Não', style: 'cancel' },
+    ]);
+  }
 
   return (
     <View style={styles.container}>
