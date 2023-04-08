@@ -47,7 +47,7 @@ export function Home() {
       {
         text: 'Sim',
         onPress: () => {
-          setTasks(tasks.filter((item) => item.taskDescription !== taskDescription && item));
+          setTasks(tasks.filter((item) => item.taskDescription !== taskDescription));
         },
       },
       { text: 'Não', style: 'cancel' },
@@ -77,17 +77,9 @@ export function Home() {
         </View>
 
         <View style={styles.taskQuantityViewBox}>
-          <ViewNumberTasks
-            viewName="Criadas"
-            quantity={tasks.filter((item) => item.finishedTask === false && item).length}
-            color="PRIMARY"
-          />
+          <ViewNumberTasks viewName="Criadas" quantity={tasks.filter((item) => item.finishedTask === false).length} color="PRIMARY" />
 
-          <ViewNumberTasks
-            viewName="Concluídas"
-            quantity={tasks.filter((item) => item.finishedTask === true && item).length}
-            color="SECONDARY"
-          />
+          <ViewNumberTasks viewName="Concluídas" quantity={tasks.filter((item) => item.finishedTask === true).length} color="SECONDARY" />
         </View>
 
         <FlatList

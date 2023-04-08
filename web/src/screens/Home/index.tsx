@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 
 import Logo from '../../assets/images/logo.png';
 import Plus from '../../assets/svg/plus.svg';
+import { ViewNumberTasks } from '../../components/ViewNumberTasks';
 import { TaskDTO } from '../../dtos/TaskDTO';
 import styles from './styles.module.css';
 
@@ -19,8 +20,8 @@ export function Home() {
 
   function handleAddTask(e: FormEvent) {
     e.preventDefault();
-    var existingTask = false;
 
+    var existingTask = false;
     tasks.filter((item) => {
       if (item.taskDescription === taskDescription) {
         existingTask = true;
@@ -31,6 +32,7 @@ export function Home() {
       Swal.fire({
         title: 'Problemas ao adicionar tarefa',
         text: 'Esta tarefa já existe! Crie uma com um nome diferente',
+        icon: 'info',
         timer: 3000,
         timerProgressBar: true,
         background: 'var(--gray-500)',
@@ -62,6 +64,19 @@ export function Home() {
             <img className={styles.plus_icon} src={Plus} />
           </button>
         </form>
+
+        <div className={styles.task_quantity_view_box}>
+          <ViewNumberTasks
+            viewName="Tarefas criadas"
+            quantity={tasks.filter((item) => item.finishedTask === false).length}
+            color="PRIMARY"
+          />
+          <ViewNumberTasks
+            viewName="Tarefas concluídas"
+            quantity={tasks.filter((item) => item.finishedTask === true).length}
+            color="SECONDARY"
+          />
+        </div>
       </main>
     </div>
   );
