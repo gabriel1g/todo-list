@@ -1,0 +1,57 @@
+.container {
+  height: 100%;
+}
+
+.container .header_box {
+  padding-block: 4.5rem 5rem;
+  background-color: var(--gray-700);
+  display: flex;
+  justify-content: center;
+}
+
+.header_box .logo {
+  height: 3rem;
+}
+
+.container .content_box {
+  height: 100%;
+  width: calc(100% - 22rem);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content_box .form_add_tasks {
+  height: 3.375rem;
+  width: 100%;
+  margin-top: -1.6875rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.form_add_tasks .tasks_input {
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--gray-700);
+  border-radius: 8px;
+  outline: none;
+  background-color: var(--gray-500);
+  color: var(--gray-100);
+}
+
+.form_add_tasks .tasks_input:focus {
+  border-color: var(--purple);
+}
+
+.form_add_tasks button {
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--blue-dark);
+  color: var(--gray-100);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, TouchableOpacityProps, View } from 'react-nativ
 import Check from '../../assets/svg/check.svg';
 import Trash from '../../assets/svg/trash.svg';
 import Uncheck from '../../assets/svg/uncheck.svg';
-import { TasksDTO } from '../../dtos/TasksDTO';
+import { TasksDTO } from '../../dtos/TaskDTO';
 import { styles } from './styles';
 
 type Props = {

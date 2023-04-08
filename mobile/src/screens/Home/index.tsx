@@ -6,12 +6,12 @@ import Clipboard from '../../assets/svg/clipboard.svg';
 import Plus from '../../assets/svg/plus.svg';
 import { TaskCard } from '../../components/TaskCard';
 import { ViewNumberTasks } from '../../components/ViewNumberTasks';
-import { TasksDTO } from '../../dtos/TasksDTO';
+import { TaskDTO } from '../../dtos/TaskDTO';
 import { styles } from './styles';
 
 export function Home() {
   const [taskDescription, setTaskDescription] = useState<string>('');
-  const [tasks, setTasks] = useState<TasksDTO[]>([]);
+  const [tasks, setTasks] = useState<TaskDTO[]>([]);
 
   function handleAddTask() {
     var existingTask = false;

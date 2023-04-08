@@ -1,4 +1,4 @@
-export type TasksDTO = {
+export type TaskDTO = {
   taskDescription: string;
   finishedTask: boolean;
 };
