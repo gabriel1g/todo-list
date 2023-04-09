@@ -48,7 +48,49 @@ export function Home() {
 
   function handleMarkTaskAsFinished(taskDescription: string) {}
 
-  function handleRemoveTask(taskDescription: string) {}
+  function handleRemoveTask(taskDescription: string) {
+    Swal.fire({
+      title: 'Remover tarefa',
+      text: 'Você deseja realmente excluir esta tarefa?',
+      icon: 'warning',
+      showConfirmButton: true,
+      confirmButtonText: 'Sim, excluir',
+      showDenyButton: true,
+      denyButtonText: 'Cancelar',
+      focusDeny: true,
+      background: 'var(--gray-500)',
+      color: 'var(--gray-100)',
+      customClass: {
+        confirmButton: 'swal2ConfirmButton',
+        denyButton: 'swal2DenyButton',
+      },
+    }).then((response) => {
+      if (response.isConfirmed) {
+        setTasks(tasks.filter((item) => item.taskDescription !== taskDescription));
+
+        Swal.fire({
+          title: 'Sua tarefa foi excluída com sucesso',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          background: 'var(--gray-500)',
+          color: 'var(--gray-100)',
+        });
+      } else if (response.isDenied) {
+        Swal.fire({
+          title: 'Operação cancelada',
+          text: 'Sua tarefa não foi excluída',
+          icon: 'info',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          background: 'var(--gray-500)',
+          color: 'var(--gray-100)',
+        });
+      }
+    });
+  }
 
   return (
     <div className={styles.container}>
