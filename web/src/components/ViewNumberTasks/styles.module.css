@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.view_name.primary {
+  color: var(--blue);
+}
+
+.view_name.secondary {
+  color: var(--purple);
+}
+
+.container .quantity {
+  padding: 0.125rem 0.75rem;
+  border-radius: 30px;
+  background-color: var(--gray-400);
+}

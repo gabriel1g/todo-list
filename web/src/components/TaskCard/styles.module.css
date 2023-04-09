@@ -1,0 +1,40 @@
+.task_card_box {
+  padding: 1rem;
+  border: 1px solid var(--gray-400);
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  background-color: var(--gray-500);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.task_card_box.finished {
+  border-color: var(--gray-500);
+}
+
+.task_card_box .finished_task_button {
+  border: none;
+  background-color: transparent;
+  line-height: 0;
+}
+
+.task_card_box .task_description {
+  flex-grow: 1;
+}
+
+.task_description.finished {
+  color: var(--gray-300);
+  text-decoration: line-through;
+}
+
+.task_card_box .trash_button {
+  border: none;
+  margin: -0.5rem -0.5rem 0 0;
+  background-color: transparent;
+  line-height: 0;
+}
+
+.trash_button img {
+  height: 40px;
+}

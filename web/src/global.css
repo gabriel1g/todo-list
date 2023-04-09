@@ -33,3 +33,19 @@ button {
   font-size: 1rem;
   font-weight: normal;
 }
+
+.swal2ConfirmButton {
+  background-color: rgb(220, 55, 65) !important;
+}
+
+.swal2ConfirmButton:focus {
+  box-shadow: 0 0 0 3px rgba(220, 55, 65, 0.5) !important;
+}
+
+.swal2DenyButton {
+  background-color: rgb(112, 102, 224) !important;
+}
+
+.swal2DenyButton:focus {
+  box-shadow: 0 0 0 3px rgb(112, 102, 224, 0.5) !important;
+}

@@ -57,6 +57,7 @@ export const styles = StyleSheet.create({
   },
   emptyListBox: {
     alignItems: 'center',
+    paddingTop: 50,
     borderTopWidth: 1,
     borderTopColor: '#333333',
   },
