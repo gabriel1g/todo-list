@@ -6,12 +6,12 @@ import Clipboard from '../../assets/svg/clipboard.svg';
 import Plus from '../../assets/svg/plus.svg';
 import { TaskCard } from '../../components/TaskCard';
 import { ViewNumberTasks } from '../../components/ViewNumberTasks';
-import { TasksDTO } from '../../dtos/TasksDTO';
+import { TaskDTO } from '../../dtos/TaskDTO';
 import { styles } from './styles';
 
 export function Home() {
   const [taskDescription, setTaskDescription] = useState<string>('');
-  const [tasks, setTasks] = useState<TasksDTO[]>([]);
+  const [tasks, setTasks] = useState<TaskDTO[]>([]);
 
   function handleAddTask() {
     var existingTask = false;
@@ -47,7 +47,7 @@ export function Home() {
       {
         text: 'Sim',
         onPress: () => {
-          setTasks(tasks.filter((item) => item.taskDescription !== taskDescription && item));
+          setTasks(tasks.filter((item) => item.taskDescription !== taskDescription));
         },
       },
       { text: 'Não', style: 'cancel' },
@@ -77,17 +77,9 @@ export function Home() {
         </View>
 
         <View style={styles.taskQuantityViewBox}>
-          <ViewNumberTasks
-            viewName="Criadas"
-            quantity={tasks.filter((item) => item.finishedTask === false && item).length}
-            color="PRIMARY"
-          />
+          <ViewNumberTasks viewName="Criadas" quantity={tasks.filter((item) => item.finishedTask === false).length} color="PRIMARY" />
 
-          <ViewNumberTasks
-            viewName="Concluídas"
-            quantity={tasks.filter((item) => item.finishedTask === true && item).length}
-            color="SECONDARY"
-          />
+          <ViewNumberTasks viewName="Concluídas" quantity={tasks.filter((item) => item.finishedTask === true).length} color="SECONDARY" />
         </View>
 
         <FlatList
@@ -105,9 +97,9 @@ export function Home() {
           showsVerticalScrollIndicator={false}
           ListEmptyComponent={() => (
             <View style={styles.emptyListBox}>
-              <Clipboard style={{ marginTop: 50 }} />
+              <Clipboard />
 
-              <Text style={styles.emptyListStrongText}>Você ainda não tem tarefas cadastradas </Text>
+              <Text style={styles.emptyListStrongText}>Você ainda não tem tarefas cadastradas</Text>
               <Text style={styles.emptyListNormalText}>Crie tarefas e organize seus itens a fazer</Text>
             </View>
           )}
