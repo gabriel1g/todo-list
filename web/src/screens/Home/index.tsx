@@ -46,7 +46,16 @@ export function Home() {
     }
   }
 
-  function handleMarkTaskAsFinished(taskDescription: string) {}
+  function handleMarkTaskAsFinished(taskDescription: string) {
+    tasks.reduce((previousTask, currentTask) => {
+      if (currentTask.taskDescription === taskDescription) {
+        currentTask.finishedTask = !currentTask.finishedTask;
+      }
+      return currentTask;
+    }, tasks[0]);
+
+    setTasks([...tasks]);
+  }
 
   function handleRemoveTask(taskDescription: string) {
     Swal.fire({
