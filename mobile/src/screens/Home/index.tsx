@@ -97,9 +97,9 @@ export function Home() {
           showsVerticalScrollIndicator={false}
           ListEmptyComponent={() => (
             <View style={styles.emptyListBox}>
-              <Clipboard style={{ marginTop: 50 }} />
+              <Clipboard />
 
-              <Text style={styles.emptyListStrongText}>Você ainda não tem tarefas cadastradas </Text>
+              <Text style={styles.emptyListStrongText}>Você ainda não tem tarefas cadastradas</Text>
               <Text style={styles.emptyListNormalText}>Crie tarefas e organize seus itens a fazer</Text>
             </View>
           )}

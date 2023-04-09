@@ -3,7 +3,9 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import Swal from 'sweetalert2';
 
 import Logo from '../../assets/images/logo.png';
+import Clipboard from '../../assets/svg/clipboard.svg';
 import Plus from '../../assets/svg/plus.svg';
+import { TaskCard } from '../../components/TaskCard';
 import { ViewNumberTasks } from '../../components/ViewNumberTasks';
 import { TaskDTO } from '../../dtos/TaskDTO';
 import styles from './styles.module.css';
@@ -44,6 +46,10 @@ export function Home() {
     }
   }
 
+  function handleMarkTaskAsFinished(taskDescription: string) {}
+
+  function handleRemoveTask(taskDescription: string) {}
+
   return (
     <div className={styles.container}>
       <header className={styles.header_box}>
@@ -59,7 +65,7 @@ export function Home() {
             type="text"
             value={taskDescription}
           />
-          <button>
+          <button className={styles.add_tasks_button}>
             Criar
             <img className={styles.plus_icon} src={Plus} />
           </button>
@@ -76,6 +82,26 @@ export function Home() {
             quantity={tasks.filter((item) => item.finishedTask === true).length}
             color="SECONDARY"
           />
+        </div>
+
+        <div className={styles.tasks_view_box}>
+          {tasks.length > 0 ? (
+            tasks.map((task) => (
+              <TaskCard
+                key={task.taskDescription}
+                taskDescription={task.taskDescription}
+                finishedTask={task.finishedTask}
+                onMarkTaskAsFinished={() => handleMarkTaskAsFinished(task.taskDescription)}
+                onRemoveTask={() => handleRemoveTask(task.taskDescription)}
+              />
+            ))
+          ) : (
+            <div className={styles.empty_list_box}>
+              <img src={Clipboard} />
+              <p className={styles.empty_list_strong_text}>Você ainda não tem tarefas cadastradas</p>
+              <p className={styles.empty_list_normal_text}>Crie tarefas e organize seus itens a fazer</p>
+            </div>
+          )}
         </div>
       </main>
     </div>
